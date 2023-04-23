@@ -4,19 +4,19 @@ import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 
 const Product = props => {
-  const { name, price, sizes, colors } = props;
+  const { title, basePrice, sizes, colors } = props;
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
         <img 
           className={styles.image}
-          alt={name}
+          alt={title}
           src={`${process.env.PUBLIC_URL}/images/products/shirt-kodilla--black.jpg`} />
       </div>
       <div>
         <header>
-          <h2 className={styles.name}>{name}</h2>
-          <span className={styles.price}>Price: {price}$</span>
+          <h2 className={styles.name}>{title}</h2>
+          <span className={styles.price}>Price: {basePrice}$</span>
         </header>
         <form>
           <div className={styles.sizes}>
@@ -51,8 +51,8 @@ const Product = props => {
 };
 
 Product.propTypes = {
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  basePrice: PropTypes.number.isRequired,
   sizes: PropTypes.arrayOf(PropTypes.string).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
