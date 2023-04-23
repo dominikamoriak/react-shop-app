@@ -27,6 +27,13 @@ const Product = props => {
     return (basePrice + size.price).toFixed(2);
   };
 
+  const handleAddToCartClick = () => {
+    console.log(`Product: ${title}`);
+    console.log(`Color: ${currentColor}`);
+    console.log(`Size: ${currentSize.name}`);
+    console.log(`Price: ${getPrice()}$`);
+  };
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -68,7 +75,8 @@ const Product = props => {
               ))}
             </ul>
           </div>
-          <Button className={styles.button}>
+          <Button className={styles.button}
+          onClick={handleAddToCartClick}>
             <span className="fa fa-shopping-cart" />
           </Button>
         </form>
