@@ -7,16 +7,24 @@ import { useState } from 'react';
 const Product = props => {
   const { title, basePrice, sizes, colors } = props;
 
-  const [currentSize, setCurrentSize] = useState(sizes[0]);
+  const [currentSize, setCurrentSize] = useState(sizes[0].name);
   const [currentColor, setCurrentColor] = useState(colors[0]);
   
+  const handleColorChange = (color) => {
+    setCurrentColor(color);
+  }
+
+  const handleSizeChange = (size) => {
+    setCurrentSize(size.name);
+  }
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
-        <img 
+      <img 
           className={styles.image}
-          alt={title}
-          src={`${process.env.PUBLIC_URL}/images/products/shirt-kodilla--black.jpg`} />
+          alt={`${title} shirt in ${currentColor}`}
+          src={`${process.env.PUBLIC_URL}/images/products/shirt-${title}--${currentColor}.jpg`} />
       </div>
       <div>
         <header>
