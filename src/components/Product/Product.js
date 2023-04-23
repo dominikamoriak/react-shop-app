@@ -21,7 +21,11 @@ const Product = props => {
   const handleClickSize = (size) => {
     setCurrentSize(size);
   };
-  
+
+  const getPrice = () => {
+    const size = sizes.find(s => s.name === currentSize.name);
+    return (basePrice + size.price).toFixed(2);
+  };
 
   return (
     <article className={styles.product}>
@@ -34,7 +38,7 @@ const Product = props => {
       <div>
         <header>
           <h2 className={styles.name}>{title}</h2>
-          <span className={styles.price}>Price: {basePrice}$</span>
+          <span className={styles.price}>Price: {getPrice}$</span>
         </header>
         <form>
           <div className={styles.sizes}>
@@ -43,7 +47,7 @@ const Product = props => {
               {sizes.map((size) => (
                 <li key={size.name}>
                   <button type="button" className={clsx(styles.choice, 
-                    {[styles.active]: size.name === currentSize})} 
+                    {[styles.active]: size.name === currentSize.name})} 
                     onClick={() => handleClickSize(size)}>
                     {size.name}
                   </button>
