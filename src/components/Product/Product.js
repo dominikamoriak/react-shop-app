@@ -27,7 +27,7 @@ const Product = props => {
       <div className={styles.imageContainer}>
       <img 
           className={styles.image}
-          alt={`${title} shirt in ${currentColor}`}
+          alt={`${title} shirt in ${currentColor} color and size ${currentSize}`}
           src={`${process.env.PUBLIC_URL}/images/products/shirt-${title}--${currentColor}.jpg`} />
       </div>
       <div>
