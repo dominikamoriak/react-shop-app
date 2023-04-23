@@ -22,6 +22,15 @@ const Product = props => {
     return styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()];
   }
 
+  const handleClickColor = (color) => {
+    setColor(color);
+  };
+  
+  const handleClickSize = (size) => {
+    setSize(size);
+  };
+  
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -43,7 +52,7 @@ const Product = props => {
                 <li key={size.name}>
                   <button type="button" className={clsx(styles.choice, 
                     {[styles.active]: size.name === currentSize})} 
-                    onClick={() => handleSizeChange(size)}>
+                    onClick={() => handleClickSize(size)}>
                     {size.name}
                   </button>
                 </li>
@@ -58,7 +67,7 @@ const Product = props => {
                   <button type="button" className={clsx(styles.choice, 
                     {[styles.active]: color === currentColor}, 
                     prepareColorClassName(color))}
-                    onClick={() => handleColorChange(color)} />
+                    onClick={() => handleClickColor(color)} />
                 </li>
               ))}
             </ul>
