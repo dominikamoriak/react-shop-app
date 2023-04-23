@@ -2,9 +2,14 @@ import styles from './Product.module.scss';
 import clsx from 'clsx';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const Product = props => {
   const { title, basePrice, sizes, colors } = props;
+
+  const [currentSize, setCurrentSize] = useState(sizes[0]);
+  const [currentColor, setCurrentColor] = useState(colors[0]);
+  
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -24,7 +29,7 @@ const Product = props => {
             <ul className={styles.choices}>
               {sizes.map((size) => (
                 <li key={size}>
-                  <button type="button" className={styles.active}>
+                  <button type="button" className={clsx(styles.active, {[styles.choiceSelected]: size === currentSize})} onClick={() => setCurrentSize(size)}>
                     {size}
                   </button>
                 </li>
@@ -36,7 +41,7 @@ const Product = props => {
             <ul className={styles.choices}>
               {colors.map((color) => (
                 <li key={color}>
-                  <button type="button" className={clsx(styles[`color${color}`], styles.active)} />
+                  <button type="button" className={clsx(styles.active, {[styles.choiceSelected]: color === currentColor}, styles[`color${color}`])} onClick={() => setCurrentColor(color)} />
                 </li>
               ))}
             </ul>
@@ -53,7 +58,7 @@ const Product = props => {
 Product.propTypes = {
   title: PropTypes.string.isRequired,
   basePrice: PropTypes.number.isRequired,
-  sizes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sizes: PropTypes.arrayOf(PropTypes.object).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
