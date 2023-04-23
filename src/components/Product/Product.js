@@ -9,25 +9,17 @@ const Product = props => {
 
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
   const [currentColor, setCurrentColor] = useState(colors[0]);
-  
-  const handleColorChange = (color) => {
-    setCurrentColor(color);
-  }
-
-  const handleSizeChange = (size) => {
-    setCurrentSize(size.name);
-  }
 
   const prepareColorClassName = color => {
     return styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()];
   }
 
   const handleClickColor = (color) => {
-    setColor(color);
+    setCurrentColor(color);
   };
   
   const handleClickSize = (size) => {
-    setSize(size);
+    setCurrentSize(size);
   };
   
 
