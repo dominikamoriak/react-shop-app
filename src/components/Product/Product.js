@@ -40,11 +40,11 @@ const Product = props => {
             <h3 className={styles.optionLabel}>Sizes</h3>
             <ul className={styles.choices}>
               {sizes.map((size) => (
-                <li key={size}>
-                  <button type="button" className={clsx(styles.active, 
-                    {[styles.choiceSelected]: size.name === currentSize})} 
+                <li key={size.name}>
+                  <button type="button" className={clsx(styles.choice, 
+                    {[styles.active]: size.name === currentSize})} 
                     onClick={() => handleSizeChange(size)}>
-                    {size}
+                    {size.name}
                   </button>
                 </li>
               ))}
@@ -55,9 +55,10 @@ const Product = props => {
             <ul className={styles.choices}>
               {colors.map((color) => (
                 <li key={color}>
-                  <button type="button" className={clsx(styles.active, 
-                    {[styles.choiceSelected]: color === currentColor}, 
-                    styles[`color${color}`])} onClick={() => handleColorChange(color)} />
+                  <button type="button" className={clsx(styles.choice, 
+                    {[styles.active]: color === currentColor}, 
+                    prepareColorClassName(color))}
+                    onClick={() => handleColorChange(color)} />
                 </li>
               ))}
             </ul>
