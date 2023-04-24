@@ -1,7 +1,7 @@
 import styles from './Product.module.scss';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductOptions from '../ProductOptions/ProductOptions';
 
@@ -12,10 +12,10 @@ const Product = props => {
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
   const [currentColor, setCurrentColor] = useState(colors[0]);
 
-  const getPrice = () => {
-    const size = sizes.find(s => s.name === currentSize.name);
+  const getPrice = useMemo(() => {
+    const size = sizes.find(s => s.name === currentSize);
     return (basePrice + size.price).toFixed(2);
-  };
+  }, [sizes, currentSize, basePrice]);
 
   const handleAddToCartClick = () => {
     console.log(`Product: ${title}`);
