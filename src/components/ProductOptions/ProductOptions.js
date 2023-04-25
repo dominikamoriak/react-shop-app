@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import OptionSize from './OptionSize/OptionSize';
-import OptionColor from './OptionColor/OptionColor';
-import styles from './ProductOptions.module.scss';
+import OptionSize from '../OptionSize/OptionSize';
+import OptionColor from '../OptionColor/OptionColor';
+//import styles from './ProductOptions.module.scss';
 
 const ProductOptions = ({
     sizes,
