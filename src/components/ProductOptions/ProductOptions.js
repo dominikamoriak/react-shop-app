@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import OptionSize from '../OptionSize/OptionSize';
 import OptionColor from '../OptionColor/OptionColor';
-//import styles from './ProductOptions.module.scss';
 
 const ProductOptions = ({
     sizes,
@@ -22,8 +21,8 @@ const ProductOptions = ({
   ProductOptions.propTypes = {
     sizes: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-  })).isRequired,
+      price: PropTypes.number,
+  }).isRequired).isRequired,
     colors: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     handleSizeClick: PropTypes.func.isRequired,
     handleColorClick: PropTypes.func.isRequired,

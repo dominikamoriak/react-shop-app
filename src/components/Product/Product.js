@@ -20,7 +20,7 @@ const Product = props => {
   const handleAddToCartClick = () => {
     console.log(`Product: ${title}`);
     console.log(`Color: ${currentColor}`);
-    console.log(`Size: ${currentSize.name}`);
+    console.log(`Size: ${currentSize}`);
     console.log(`Price: ${getPrice()}$`);
   };
 
