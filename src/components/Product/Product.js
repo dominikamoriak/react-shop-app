@@ -6,21 +6,18 @@ import ProductImage from '../ProductImage/ProductImage';
 import ProductOptions from '../ProductOptions/ProductOptions';
 
 const Product = props => {
-  const { title, basePrice, sizes, colors } = props;
+  const { name, basePrice, sizes, colors } = props;
 
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
   const [currentColor, setCurrentColor] = useState(colors[0]);
 
   const getPrice = useMemo(() => {
     const size = sizes.find(s => s.name === currentSize);
-    if (size) {
-      return (basePrice + size.price).toFixed(2);
-    }
-    return basePrice.toFixed(2);
-      }, [sizes, currentSize, basePrice]);
+    return (basePrice + size.additionalPrice).toFixed(2);
+  }, [sizes, currentSize, basePrice]);
 
   const handleAddToCartClick = () => {
-    console.log(`Product: ${title}`);
+    console.log(`Product: ${name}`);
     console.log(`Color: ${currentColor}`);
     console.log(`Size: ${currentSize}`);
     console.log(`Price: ${getPrice()}$`);
@@ -28,31 +25,30 @@ const Product = props => {
 
   return (
     <article className={styles.product}>
-      <ProductImage title={title} currentColor={currentColor}/>
+      <ProductImage name={name} currentColor={currentColor}/>
       <div>
         <header>
-          <h2 className={styles.name}>{title}</h2>
+          <h2 className={styles.name}>{name}</h2>
           <span className={styles.price}>Price: {getPrice}$</span>
         </header>
           <ProductOptions
             sizes={sizes}
             colors={colors}
-            handleSizeClick={setCurrentSize}
+            handleSizeClick={size => setCurrentSize(size.name)}
             handleColorClick={setCurrentColor}
             activeSize={currentSize}
-            activeColor={currentColor}>
+            activeColor={currentColor}/>
               <Button className={styles.button}
                 onClick={handleAddToCartClick}>
                 <span className="fa fa-shopping-cart" />
-            </Button>
-        </ProductOptions>      
+              </Button>
           </div>
     </article>
   )
 };
 
 Product.propTypes = {
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   basePrice: PropTypes.number.isRequired,
   sizes: PropTypes.arrayOf(PropTypes.object).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
