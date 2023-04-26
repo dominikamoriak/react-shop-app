@@ -31,6 +31,7 @@ const Product = props => {
           <h2 className={styles.name}>{name}</h2>
           <span className={styles.price}>Price: {getPrice}$</span>
         </header>
+        <div>
           <ProductOptions
             sizes={sizes}
             colors={colors}
@@ -38,11 +39,12 @@ const Product = props => {
             handleColorClick={setCurrentColor}
             activeSize={currentSize}
             activeColor={currentColor}/>
-              <Button className={styles.button}
-                onClick={handleAddToCartClick}>
-                <span className="fa fa-shopping-cart" />
-              </Button>
+          <Button className={styles.button}
+            onClick={handleAddToCartClick}>
+            <span className="fa fa-shopping-cart" />
+          </Button>
           </div>
+      </div>
     </article>
   )
 };
