@@ -13,8 +13,11 @@ const Product = props => {
 
   const getPrice = useMemo(() => {
     const size = sizes.find(s => s.name === currentSize);
-    return (basePrice + size.price).toFixed(2);
-  }, [sizes, currentSize, basePrice]);
+    if (size) {
+      return (basePrice + size.price).toFixed(2);
+    }
+    return basePrice.toFixed(2);
+      }, [sizes, currentSize, basePrice]);
 
   const handleAddToCartClick = () => {
     console.log(`Product: ${title}`);
