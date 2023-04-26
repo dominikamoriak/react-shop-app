@@ -11,7 +11,7 @@ const OptionSize = ({ sizes, handleSizeClick, activeSize }) => {
     <li key={size.name}>
       <button type="button" className={clsx(styles.choice, {
         [styles.active]: size.name === activeSize, })}
-        onClick={() => handleSizeClick(size)}>
+        onClick={() => handleSizeClick(size.name)}>
         {size.name}
       </button>
     </li>
