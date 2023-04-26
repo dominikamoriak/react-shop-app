@@ -20,12 +20,15 @@ const ProductOptions = ({
   };
   
   ProductOptions.propTypes = {
-    sizes: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    sizes: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+  })).isRequired,
     colors: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     handleSizeClick: PropTypes.func.isRequired,
     handleColorClick: PropTypes.func.isRequired,
-    currentSize: PropTypes.string.isRequired,
-    currentColor: PropTypes.string.isRequired,
+    activeSize: PropTypes.string.isRequired,
+    activeColor: PropTypes.string.isRequired,
   };
   
   export default ProductOptions;
