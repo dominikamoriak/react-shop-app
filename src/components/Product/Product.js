@@ -5,7 +5,6 @@ import { useState, useMemo } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductOptions from '../ProductOptions/ProductOptions';
 
-
 const Product = props => {
   const { title, basePrice, sizes, colors } = props;
 
@@ -26,7 +25,7 @@ const Product = props => {
 
   return (
     <article className={styles.product}>
-      <ProductImage />
+      <ProductImage title={title} currentColor={currentColor}/>
       <div>
         <header>
           <h2 className={styles.name}>{title}</h2>

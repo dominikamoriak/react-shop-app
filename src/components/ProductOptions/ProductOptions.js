@@ -12,8 +12,8 @@ const ProductOptions = ({
   }) => {
     return (
     <form>
-        <OptionSize sizes={sizes} handleSizeClick={handleSizeClick} currentSize={activeSize} />
-        <OptionColor colors={colors} handleColorClick={handleColorClick} currentColor={activeColor} />
+        <OptionSize sizes={sizes} handleSizeClick={handleSizeClick} activeSize={activeSize} />
+        <OptionColor colors={colors} handleColorClick={handleColorClick} activeColor={activeColor} />
     </form>
     );
   };
