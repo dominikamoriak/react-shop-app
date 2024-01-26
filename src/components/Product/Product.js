@@ -20,7 +20,7 @@ const Product = props => {
     console.log(`Product: ${name}`);
     console.log(`Color: ${currentColor}`);
     console.log(`Size: ${currentSize}`);
-    console.log(`Price: ${getPrice()}$`);
+    console.log(`Price: ${getPrice}$`);
   };
 
   return (
