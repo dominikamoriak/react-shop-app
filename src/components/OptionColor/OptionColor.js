@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import styles from './OptionColor.module.scss';
 
-const OptionColor = ({ colors, handleColorClick, currentColor }) => {
+const OptionColor = ({ colors, handleColorClick, activeColor }) => {
 
 const prepareColorClassName = color => {
     return styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()];
@@ -15,7 +15,7 @@ return (
   {colors.map((color) => (
     <li key={color}>
       <button type="button" className={clsx(styles.choice, 
-        {[styles.active]: color === currentColor}, 
+        {[styles.active]: color === activeColor}, 
         prepareColorClassName(color))}
         onClick={() => handleColorClick(color)} />
     </li>
