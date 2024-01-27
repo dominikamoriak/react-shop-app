@@ -6,7 +6,7 @@ import ProductImage from '../ProductImage/ProductImage';
 import ProductOptions from '../ProductOptions/ProductOptions';
 
 const Product = props => {
-  const { name, basePrice, sizes, colors } = props;
+  const { name, title, basePrice, sizes, colors } = props;
 
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
   const [currentColor, setCurrentColor] = useState(colors[0]);
@@ -17,7 +17,7 @@ const Product = props => {
   }, [sizes, currentSize, basePrice]);
 
   const handleAddToCartClick = () => {
-    console.log(`Product: ${name}`);
+    console.log(`Product: ${title}`);
     console.log(`Color: ${currentColor}`);
     console.log(`Size: ${currentSize}`);
     console.log(`Price: ${getPrice}$`);
@@ -25,10 +25,10 @@ const Product = props => {
 
   return (
     <article className={styles.product}>
-      <ProductImage name={name} currentColor={currentColor}/>
+      <ProductImage name={name} title={title} currentColor={currentColor}/>
       <div>
         <header>
-          <h2 className={styles.name}>{name}</h2>
+          <h2 className={styles.name}>{title}</h2>
           <span className={styles.price}>Price: {getPrice}$</span>
         </header>
         <div>
@@ -51,6 +51,7 @@ const Product = props => {
 
 Product.propTypes = {
   name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   basePrice: PropTypes.number.isRequired,
   sizes: PropTypes.arrayOf(PropTypes.object).isRequired,
   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
