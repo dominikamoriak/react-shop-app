@@ -22,7 +22,7 @@ const OptionSize = ({ sizes, handleSizeClick, activeSize }) => {
 };
 
 OptionSize.propTypes = {
-    sizes: PropTypes.arrayOf(PropTypes.object).isRequired,
+    sizes: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     handleSizeClick: PropTypes.func.isRequired,
     activeSize: PropTypes.string.isRequired,
   };

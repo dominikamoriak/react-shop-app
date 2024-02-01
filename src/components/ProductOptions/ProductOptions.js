@@ -21,8 +21,8 @@ const ProductOptions = ({
   ProductOptions.propTypes = {
     sizes: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
-      price: PropTypes.number,
-  }).isRequired).isRequired,
+      additionalPrice: PropTypes.number,
+  })).isRequired,
     colors: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     handleSizeClick: PropTypes.func.isRequired,
     handleColorClick: PropTypes.func.isRequired,

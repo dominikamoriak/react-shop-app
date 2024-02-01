@@ -53,8 +53,8 @@ Product.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   basePrice: PropTypes.number.isRequired,
-  sizes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sizes: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  colors: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
 
 export default Product;
