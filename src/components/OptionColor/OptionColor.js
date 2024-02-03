@@ -10,7 +10,7 @@ const prepareColorClassName = color => {
 
 return (
 <div className={styles.colors}>
-<h3 className={styles.optionLabel}>Colors</h3>
+<h3 className={styles.optionLabel}>Colors:</h3>
 <ul className={styles.choices}>
   {colors.map((color) => (
     <li key={color}>
